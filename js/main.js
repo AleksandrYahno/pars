@@ -13,6 +13,8 @@ request.onload = function () {
 
     var index;
 
+    // console.log(obj.results);
+
     for (index = 0; index < obj.results.length; ++index) {
 
         parseInt(obj.results[index].original_title);
@@ -25,6 +27,26 @@ request.onload = function () {
 
         newA.className = "collection-item";
         newB.className = "collection-item";
+
+        newA.addEventListener("click", function () {
+
+            for (var i in obj.results) {
+
+                var my_aa = null;
+                var newAA = document.createElement("p");
+                newAA.innerHTML = "popularity : " + obj.results[i].popularity;
+                my_aa = document.getElementById("contentAdd");
+                document.body.insertBefore(newAA, my_aa);
+
+                var my_bb = null;
+                var newBB = document.createElement("p");
+                newBB.innerHTML = "overview : " + obj.results[i].overview;
+                my_bb = document.getElementById("contentAdd");
+                document.body.insertBefore(newBB, my_bb);
+
+            }
+
+        });
 
         newA.setAttribute('href', "#!");
         newB.setAttribute('href', "#!");
@@ -43,3 +65,5 @@ request.onload = function () {
     }
 
 };
+
+
